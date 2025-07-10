@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <fieldset>
+        <label for="Caesar-Cipher">Enter your text (Plain text or Cipher text):<input id="Caesar-Cipher" type="text"></label>
+        <button id="Caesar-Cipher-Encrypt" type="button">Encrypt</button>
+        <button id="Caesar-Cipher-Decrypt" type="button">Decrypt</button>
+        <span class="Caesar-Cipher-Output">Result: <strong><span id="Caesar-Cipher-Output"></span></strong></span>
+    </fieldset>
+
+    <fieldset>
+        <label for="Caesar-Cipher2">Enter your text (Plain text or Cipher text):<input id="Caesar-Cipher2" type="text"></label>
+        <label for="Caesar-Cipher-Num">Enter the key (No Need For Brute Force Attack):<input id="Caesar-Cipher-Num"type="number"min="0" placeholder="NUM" required/></label>
+        <button id="Caesar-Cipher-Encrypt2" type="button">Encrypt</button>
+        <button id="Caesar-Cipher-Decrypt2" type="button">Decrypt</button>
+        <button id="Caesar-Cipher-BruteForce" type="button">BruteForce</button>
+        <span class="Caesar-Cipher-Output2">Result: <strong><span id="Caesar-Cipher-Output2"></span></strong></span>
+    </fieldset>
+
+</body>
+<script src="./scripts.js"></script>
+</html>
