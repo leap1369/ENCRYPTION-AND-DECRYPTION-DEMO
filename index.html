@@ -1,39 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Project</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Project</title>
+  <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
+  <table width="100%">
+    <tr>
+      
+      <td width="20%" valign="top">
+        <div class="note-box">
+          <h2 class="note-title">Content</h2>
+          <ol>
+            <li>
+              <a href="#Classical">Classical Cryptography</a>
+              <ol type="1">
+                <li><a href="#caesar">1.1 Caesar Cipher</a></li>
+                <li><a href="#general">1.2 General Shift Cipher</a></li>
+                <li><a href="#affine">1.3 Affine Cipher</a></li>
+                <li><a href="#transposition">1.4 Transposition Cipher</a></li>
+              </ol>
+            </li>
+            <li>RSA Cryptography</li>
+            <li>Miscellaneous</li>
+          </ol>
+        </div>
+      </td>
 
-    <fieldset>
-        <label for="Caesar-Cipher">Enter your text (Plain text or Cipher text):<input id="Caesar-Cipher" type="text"></label>
-        <button id="Caesar-Cipher-Encrypt" type="button">Encrypt</button>
-        <button id="Caesar-Cipher-Decrypt" type="button">Decrypt</button>
-        <span class="Caesar-Cipher-Output">Result: <strong><span id="Caesar-Cipher-Output"></span></strong></span>
-    </fieldset>
+      <td width="80%" valign="top">
 
-    <fieldset>
-        <label for="Caesar-Cipher2">Enter your text (Plain text or Cipher text):<input id="Caesar-Cipher2" type="text"></label>
-        <label for="Caesar-Cipher-Num">Enter the key (No Need For Brute Force Attack):<input id="Caesar-Cipher-Num"type="number" placeholder="NUM" required/></label>
-        <button id="Caesar-Cipher-Encrypt2" type="button">Encrypt</button>
-        <button id="Caesar-Cipher-Decrypt2" type="button">Decrypt</button>
-        <button id="Caesar-Cipher-BruteForce" type="button">BruteForce</button>
-        <span class="Caesar-Cipher-Output2">Result: <strong><span id="Caesar-Cipher-Output2"></span></strong></span>
-    </fieldset>
+        <fieldset class="center">
+          <img src="RUPP_logo.PNG" alt="RUPP Logo" width="143" height="149">
+          <h3>Royal University of Phnom Penh</h3>
+          <h4>Submitted to</h4>
+          <h4>Mr. LIM Seyha</h4>
+          <p>Discrete Math Lecturer, Royal University of Phnom Penh, Phnom Penh</p>
+          <h4>Team:</h4>
+          <div class="team-list">
+            <div>
+              <p>1. Lim Hakbunleap</p>
+              <p>2. Mao Sovannudomsetha</p>
+              <p>3. Moeng Sirotanaksambat</p>
+              <p>4. Leap Bunrourn</p>
+              <p>5. Ly Kimheang</p>
+              <p>6. Rith Jengdavid</p>
+              <p>7. Pen Sovichea</p>
+            </div>
+          </div>
+        </fieldset>
 
-    <fieldset>
-        <label for="Caesar-Cipher3">Enter your text (Plain text or Cipher text):<input id="Caesar-Cipher3" type="text"></label>
-        <label for="Caesar-Cipher-NumA">Enter the key a:<input id="Caesar-Cipher-NumA"type="number"min="0" placeholder="NUM" required/></label>
-        <label for="Caesar-Cipher-NumB">Enter the key b:<input id="Caesar-Cipher-NumB"type="number"min="0" placeholder="NUM" required/></label>
-        <button id="Caesar-Cipher-Encrypt3" type="button">Encrypt</button>
-        <button id="Caesar-Cipher-Decrypt3" type="button">Decrypt</button>
-        <button id="Caesar-Cipher-BruteForce3" type="button">BruteForce</button>
-        <span class="Caesar-Cipher-Output3">Result: <strong><span id="Caesar-Cipher-Output3"></span></strong></span>
-    </fieldset>
 
+        <fieldset>
+          <div class="container">
+            <div class="text-container">
+              <h2 id="Classical" class="target-element">I. Classical Cryptography</h2>
+              <h3 id="caesar" class="target-element">I.I. Caesar Cipher</h3>
+              <p>
+                One of the earliest and most well-known forms of cryptography was developed by Emperor Julius Caesar. During times of war, he needed a way to send secret messages to his generals. His solution was simple but effective: shift each letter in the alphabet by three positions. For example, the letter A becomes D, B becomes E, and so on. This technique came to be known as the Caesar Cipher.
+                <br><b>Source:</b> <a href="https://caesarcipher.net">caesarcipher.net</a>
+              </p>
+              <p>Emperor Julius Caesar made his messages secret by shifting each letter three positions forward in the alphabet. The algorithm to encrypt a message works like this:</p>
+              <b>1. Assign numbers to each letter:</b>
+              <p>A → 00, B → 01, ..., Z → 25</p>
+              <b>2. Convert plaintext to numbers:</b>
+              <p>HELLO → 7 4 11 11 14</p>
+              <b>3. Encrypt by adding 3:</b>
+              <p>7 4 11 11 14 → 10 7 14 14 17</p>
+              <b>4. Modulo 26:</b>
+              <p>Same: 10 7 14 14 17</p>
+              <b>5. Convert back to letters:</b>
+              <p>10 7 14 14 17 → K H O O R<br>
+                Ek=3 (HELLO) = KHOOR</p>
+            </div>
+
+            <div class="right-container">
+              <div class="image-container">
+                <img src="caesar-cipher-wheel.webp" alt="Caesar Cipher" width="100%">
+                <div><b>Image:</b> Caesar Cipher Wheel <b>Source:</b><a href="https://caesarcipher.net"> caesarcipher.net</a></div>
+              </div>
+                  <br><br><br>
+              <div class="input-container">
+                <label for="Caesar-Cipher">Enter your text:
+                  <input id="Caesar-Cipher" type="text" placeholder="Example: Hello World">
+                </label>
+                <br>
+                <button class="Encrypt-button" id="Caesar-Cipher-Encrypt">Encrypt</button>
+                <button class="Decrypt-button" id="Caesar-Cipher-Decrypt">Decrypt</button>
+                <span class="Caesar-Cipher-Output">Result: <strong><span id="Caesar-Cipher-Output"></span></strong></span>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+
+        <fieldset>
+          <div class="container">
+            <div class="text-container">
+              <h3 id="general" class="target-element">I.II. General Shift Cipher</h3>
+              <p>
+                The General Shift Cipher is a more advanced version of the Caesar Cipher. Instead of a fixed shift of three positions, it allows for any integer value as the shift. This means that you can choose any number to shift the letters in the alphabet, making it more versatile and secure.
+              </p>
+              <h4>General Shift Cipher Demo</h4>
+            </div>
+          </div>
+          <div class="input-container">
+            <label for="Caesar-Cipher2">Enter your text:
+              <input id="Caesar-Cipher2" type="text" placeholder="Example: Hello World">
+            </label>
+            <label for="Caesar-Cipher-Num">Enter the key:
+              <input id="Caesar-Cipher-Num" type="number" placeholder="Key" required>
+            </label>
+            <br>
+            <button class="Encrypt-button" id="Caesar-Cipher-Encrypt2">Encrypt</button>
+            <button class="Decrypt-button" id="Caesar-Cipher-Decrypt2">Decrypt</button>
+            <button class="BruteForce-button" id="Caesar-Cipher-BruteForce">BruteForce</button>
+            <span class="Caesar-Cipher-Output">Result: <strong><span id="Caesar-Cipher-Output2"></span></strong></span>
+          </div>
+        </fieldset>
+
+
+        <fieldset>
+          <div class="container">
+            <div class="text-container">
+              <h3 id="affine" class="target-element">I.III. Affine Cipher</h3>
+              <p>
+                "The Affine Cipher is a more complex encryption method that combines both a shift and a multiplication operation. It uses two keys: one for the shift and another for the multiplication. The formula for encryption is E(x) = (ax + b) mod 26, where 'a' and 'b' are the keys, and 'x' is the numerical representation of the letter."
+              </p>
+              <h4>Affine Cipher Demo</h4>
+            </div>
+          </div>
+          <div class="input-container">
+            <label for="Caesar-Cipher3">Enter your text:
+              <input id="Caesar-Cipher3" type="text" placeholder="Example: Hello World">
+            </label>
+            <label for="Caesar-Cipher-NumA">Enter key a:
+              <input id="Caesar-Cipher-NumA" type="number" min="0" placeholder="a" required>
+            </label>
+            <label for="Caesar-Cipher-NumB">Enter key b:
+              <input id="Caesar-Cipher-NumB" type="number" min="0" placeholder="b" required>
+            </label>
+            <br>
+            <button class="Encrypt-button" id="Caesar-Cipher-Encrypt3">Encrypt</button>
+            <button class="Decrypt-button" id="Caesar-Cipher-Decrypt3">Decrypt</button>
+            <button class="BruteForce-button" id="Caesar-Cipher-BruteForce3">BruteForce</button>
+            <span class="Caesar-Cipher-Output">Result: <strong><span id="Caesar-Cipher-Output3"></span></strong></span>
+          </div>
+        </fieldset>
+
+
+        <fieldset>
+          <div class="container">
+            <div class="text-container">
+              <h3 id="transposition" class="target-element">I.IV. Transposition Cipher</h3>
+              <p>
+                  In the fascinating world of cryptography, transposition ciphers stand out as one of the oldest and simplest forms of encryption. Rather than changing the actual letters or symbols (as substitution ciphers do), transposition ciphers rearrange the positions of the characters according to a specific system, creating a ciphertext that hides the original message.        
+              </p>
+
+              <h3>Transposition Cipher Demo</h3>
+            </div>
+          </div>
+          <div class="input-container">
+            
+              <!-- II.I.I RSA Keygen Demo -->
+              <div class="input-container">
+                <label for="Caesar-Cipher4">Enter your text:
+                  <input id="Caesar-Cipher4" type="text" placeholder="Example: Hello World">
+                </label>
+                <label for="Caesar-Cipher-Num">Enter the key:
+                  <input id="key" type="number" placeholder="Key" min="2" required>
+                </label>
+                <br>
+                <button class="Encrypt-button" id="Caesar-Cipher-Encrypt4">Encrypt</button>
+                <button class="Decrypt-button" id="Caesar-Cipher-Decrypt4">Decrypt</button>
+  
+                <span class="Caesar-Cipher-Output">Result: <strong><span id="Caesar-Cipher-Output4"></span></strong></span>
+              </div>
+          </div>
+        </fieldset>
+
+
+        <fieldset>
+          <div class="container">
+            <div class="text-container">
+              <h3>II.RSA</h3>
+              <h3>    II.I. RSA Cryptography</h3>
+              <p>
+                "RSA (Rivest-Shamir-Adleman) is a widely used asymmetric encryption algorithm that relies on the mathematical properties of prime numbers. It was invented in 1977 by Ron Rivest, Adi Shamir, and Leonard Adleman. RSA is based on the difficulty of factoring large composite numbers into their prime factors."
+              </p>
+              <h4>II.I.I RSA Keygen Demo</h4>
+            </div>
+          </div>
+          <div class="input-container">
+            
+              <!-- II.I.I RSA Keygen Demo -->
+
+              <label for="p">Enter prime number p:
+                <input id="p" type="number" min="2" placeholder="e.g: 15" required>
+              </label>
+              <label for="q">Enter prime number q:
+                <input id="q" type="number" min="2" placeholder="e.g: 21" required>
+              </label>
+              <button onclick="generateKeys()">Generate Keys</button>
+              <span class="Caesar-Cipher-Output">Result: <strong><span id="output1"></span></strong></span>
+              <br>
+              <label for="Caesar-Cipher4">Enter your text:
+                <input id="message" type="text" placeholder="Example: Hello World">
+              </label>
+              <button class="Encrypt-button" onclick="encryptRSI()">Encrypt</button>
+              <button class="Decrypt-button" onclick="decryptRSI()">Decrypt</button>
+              <span class="Caesar-Cipher-Output">Result: <strong><span id="output2"></span></strong></span>
+  
+
+          </div>
+        </fieldset>
+
+
+        <fieldset>
+          <div class="container">
+            <div class="text-container">
+              <h3>III.Miscellaneous</h3>
+              <p>Check my repository for codes: </p>
+            </div>
+          </div>
+          <div class="input-container">
+            
+              <!-- II.I.II RSA Encryption Demo -->
+
+          </div>
+        </fieldset>
+      </td>
+
+    </tr>
+  </table>
+
+  <script>
+
+    // Amount of space (in px) you want above the target after scrolling
+    const scrollOffset = 50;
+
+    // Listen for all clicks on links with hashes
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetID = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetID);
+        if (targetElement) {
+          e.preventDefault();
+          
+          // Calculate scroll position with offset
+          const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - scrollOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      });
+    });
+  </script>
+  <script src="./scripts.js"></script>
 </body>
-<script src="./scripts.js"></script>
 </html>
